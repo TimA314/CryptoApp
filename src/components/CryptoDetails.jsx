@@ -19,7 +19,7 @@ import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } from "../services/cryptoApi";
-import LineChart from "./LineChart";
+import { LineChart } from "./LineChart";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -28,14 +28,16 @@ export default function CryptoDetails() {
   const [timePeriod, setTimePeriod] = useState("7d");
   const { coinId } = useParams();
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-  const { data: coinHistory } = useGetCryptoHistoryQuery(coinId, timePeriod);
-
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
+    coinId,
+    timePeriod,
+  });
   const cryptoDetails = data?.data?.coin;
   console.log(coinHistory);
 
   if (isFetching) return "Loading...";
 
-  const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
+  const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 
   const stats = [
     {
@@ -102,8 +104,8 @@ export default function CryptoDetails() {
           {cryptoDetails.name} ({cryptoDetails.symbol}) Price
         </Title>
         <p>
-          {cryptoDetails.name} live price in US dollars. View value statistics,
-          market cap and supply.
+          {cryptoDetails.name} live price in US dollars. View statistics, market
+          cap and supply.
         </p>
       </Col>
       <Select
