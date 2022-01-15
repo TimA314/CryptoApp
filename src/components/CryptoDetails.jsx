@@ -14,7 +14,7 @@ import {
   NumberOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
-
+import Loader from "./Loader";
 import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
@@ -35,7 +35,7 @@ export default function CryptoDetails() {
   const cryptoDetails = data?.data?.coin;
   console.log(coinHistory);
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 

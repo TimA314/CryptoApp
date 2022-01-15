@@ -55,7 +55,7 @@ export const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         </Typography.Title>
         <Col className="chart-container">
           <Typography.Title level={5} className="chart-Typography.Title">
-            {coinHistory?.data?.change}
+            Change: {coinHistory?.data?.change}%
           </Typography.Title>
           <Typography.Title level={5} className="chart-Typography.Title">
             Current {coinName} Price: $ {currentPrice}
