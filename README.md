@@ -9,7 +9,8 @@ This app shows the latest news, prices, charts, and stats on 100's of cryptocurr
   ✨ React <br>
   ✨ Redux Toolkit <br>
   ✨ AntDesign Components <br>
-  
+
+Backend https://github.com/TimA314/CryptoApp-relayAPI
 
 
 ### Live Site: https://coin-land-01.web.app/
